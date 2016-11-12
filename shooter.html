@@ -98,8 +98,8 @@ function Enemy(canvas) {
 
     var lifeProp = [];
     lifeProp[1] = { color: 'white',  fireP: 0.001, numB:  5, daze: 1 };
-    lifeProp[2] = { color: 'yellow', fireP: 0.005, numB: 17, daze: 3 };
-    lifeProp[3] = { color: 'red',    fireP: 0.01,  numB: 28, daze: 6 };
+    lifeProp[2] = { color: 'yellow', fireP: 0.005, numB: 15, daze: 3 };
+    lifeProp[3] = { color: 'red',    fireP: 0.01,  numB: 25, daze: 6 };
 
     this.draw = function(ctx) {
 
@@ -464,9 +464,15 @@ window.onload = function() {
             ctx.fillText(s, canvas.width - 10, 0);
         }
 		
-		if(numEnemies = 0){
-		    msg = 'GAME CLEAR!!!'; 
-		    }
+	if(numEnemies == 0){
+		//numEnemies = 1
+		msg = 'GAME CLEAR!!!';
+	    if (keys[32 /*space*/]) {
+		status = Status.title;
+		drawEnemies = true;
+            	drawStatus = true;
+		}
+	}
 
         if (msg) {
             ctx.font = '40pt Calibri';
